@@ -19,7 +19,6 @@
         * { box-sizing: border-box; margin: 0; padding: 0; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; }
         body { background-color: var(--bg-color); color: var(--text-color); display: flex; flex-direction: column; min-height: 100vh; }
 
-        /* Header tối ưu & Bỏ chữ Portal */
         header { background: linear-gradient(135deg, #065f46, #0284c7); color: white; padding: 1rem 2rem; display: flex; justify-content: space-between; align-items: center; box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1); }
         .logo { font-size: 1.8rem; font-weight: 800; color: #ffffff; letter-spacing: 1px; }
         
@@ -35,7 +34,6 @@
         .tab-content { display: none; }
         .tab-content.active { display: block; }
 
-        /* Trang chủ: Phông nền ký hiệu Toán tĩnh bằng CSS nhẹ, không gây lag / nháy màn hình */
         .home-hero { 
             text-align: center; 
             padding: 4rem 1rem; 
@@ -63,7 +61,6 @@
         .home-hero h1 { font-size: 4.5rem; color: #ffffff; letter-spacing: 4px; font-weight: 900; position: relative; z-index: 1; text-shadow: 0 4px 10px rgba(0,0,0,0.2); }
         .home-hero p { font-size: 1.2rem; color: #e0f2fe; margin-top: 0.5rem; position: relative; z-index: 1; }
 
-        /* Quy định cộng/trừ điểm */
         .rules-container { display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; }
         .rule-box { background: var(--card-bg); padding: 1.5rem; border-radius: 12px; box-shadow: 0 4px 6px -1px rgba(0,0,0,0.05); border-top: 4px solid var(--accent-color); }
         .rule-box h3 { margin-bottom: 1rem; padding-bottom: 0.5rem; border-bottom: 2px solid #e2e8f0; }
@@ -73,7 +70,6 @@
         .rule-box.minus h3 { color: var(--danger-color); }
         .rule-box ul { list-style-type: square; padding-left: 1.2rem; line-height: 1.8; }
 
-        /* Bảng xếp hạng */
         .filter-section { margin-bottom: 1rem; display: flex; justify-content: space-between; align-items: center; gap: 10px; flex-wrap: wrap; }
         .filter-section input { padding: 0.6rem; border: 1px solid #cbd5e1; border-radius: 6px; width: 300px; }
         
@@ -96,7 +92,6 @@
         .btn-reset { background-color: #feefc3; color: var(--warning-color); }
         .btn-delete { background-color: #ef4444; color: white; padding: 4px 10px; border: none; border-radius: 6px; cursor: pointer; font-size: 0.8rem; }
 
-        /* Sự kiện */
         .event-form { background: var(--card-bg); padding: 1.5rem; border-radius: 12px; margin-bottom: 2rem; box-shadow: 0 4px 6px -1px rgba(0,0,0,0.05); border-left: 5px solid var(--success-color); }
         .form-group { margin-bottom: 1rem; }
         .form-group label { display: block; margin-bottom: 0.3rem; font-weight: 500; }
@@ -117,7 +112,6 @@
         .priority-very-important { border-top-color: #d97706; }
         .priority-mandatory { border-top-color: #ef4444; }
 
-        /* Modal Đăng Nhập */
         .modal { display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.5); justify-content: center; align-items: center; z-index: 1000; }
         .modal-content { background: white; padding: 2rem; border-radius: 12px; width: 380px; box-shadow: 0 10px 25px rgba(0,0,0,0.2); }
         .modal-content h3 { margin-bottom: 1rem; color: var(--primary-color); }
@@ -144,7 +138,6 @@
     </header>
 
     <main>
-        <!-- TRANG CHỦ -->
         <section id="home" class="tab-content active">
             <div class="home-hero">
                 <h1>TOÁN 1</h1>
@@ -173,7 +166,6 @@
             </div>
         </section>
 
-        <!-- BẢNG XẾP HẠNG -->
         <section id="ranking" class="tab-content">
             <h2 style="margin-bottom: 1rem; color: var(--primary-color);">Bảng Xếp Hạng Thi Đua Lớp Toán 1</h2>
             
@@ -184,7 +176,6 @@
                 </div>
             </div>
 
-            <!-- Bảng Thao Tác Admin -->
             <div id="adminPanel" class="admin-panel" style="display: none;">
                 <strong>⚡ THAO TÁC CỘNG / TRỪ HÀNG LOẠT (QUYỀN ADMIN)</strong>
                 <p style="font-size: 0.85rem; color: #334155; margin-top: 4px;">Tích chọn học sinh bên dưới bảng, nhập điểm và chọn lý do tương ứng:</p>
@@ -224,7 +215,6 @@
             </table>
         </section>
 
-        <!-- SỰ KIỆN -->
         <section id="events" class="tab-content">
             <h2 style="margin-bottom: 1rem; color: var(--primary-color);">Sự Kiện & Hoạt Động Lớp Toán 1</h2>
             
@@ -288,7 +278,6 @@
         </section>
     </main>
 
-    <!-- MODAL ĐĂNG NHẬP -->
     <div id="loginModal" class="modal">
         <div class="modal-content">
             <h3>Đăng Nhập Hệ Thống</h3>
@@ -330,7 +319,25 @@
         </div>
     </div>
 
+    <!-- KHỞI TẠO THƯ VIỆN FIREBASE PHIÊN BẢN COMPAT (TỐI ƯU CHO SCRIPT ĐƠN GIẢN) -->
+    <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-database-compat.js"></script>
+
     <script>
+        // Cấu hình Firebase
+        const firebaseConfig = {
+            apiKey: "AIzaSyDPUmE_MS6d6q5tJKAt3vsVbiCvWud1gU",
+            authDomain: "web-cong-thong-tin-toan1.firebaseapp.com",
+            databaseURL: "https://web-cong-thong-tin-toan1-default-rtdb.firebaseio.com",
+            projectId: "web-cong-thong-tin-toan1",
+            storageBucket: "web-cong-thong-tin-toan1.firebasestorage.app",
+            messagingSenderId: "534043328310",
+            appId: "1:534043328310:web:ef4b8fb876d8b80386fd97"
+        };
+
+        firebase.initializeApp(firebaseConfig);
+        const db = firebase.database();
+
         const studentNames = [
             "Nguyễn Nam Anh", "Võ Gia Bảo", "Nguyễn Phú Bình", "Phạm Lê Hải Bằng", 
             "Bùi Quang Dũng", "Nguyễn Minh Duy", "Trần Hoàng Bảo Duy", "Bach Ngọc Bảo Duy", 
@@ -343,21 +350,40 @@
             "Đoàn Minh Quân", "Nguyễn Huy Minh Quân", "Nguyễn Minh Tuấn", "Nguyễn Mạnh Tùng"
         ];
 
-        // Tất cả mọi người ban đầu đều 0 điểm
-        let membersData = studentNames.map((name, index) => ({
-            id: index,
-            name: name,
-            plus: 0,
-            minus: 0,
-            history: [],
-            get total() { return this.plus - this.minus; }
-        }));
-
+        let membersData = [];
         let eventsData = [];
 
         let currentUserRole = "Khách";
         let currentUserName = "";
         let isAdmin = false;
+
+        // LẮNG NGHE ĐỒNG BỘ DỮ LIỆU THỜI GIAN THỰC TỪ FIREBASE
+        db.ref('members').on('value', (snapshot) => {
+            const data = snapshot.val();
+            if (data) {
+                membersData = data;
+            } else {
+                membersData = studentNames.map((name, index) => ({
+                    id: index,
+                    name: name,
+                    plus: 0,
+                    minus: 0,
+                    history: []
+                }));
+                saveMembersData();
+            }
+            renderRanking();
+        });
+
+        db.ref('events').on('value', (snapshot) => {
+            const data = snapshot.val();
+            eventsData = data ? Object.values(data) : [];
+            renderEvents();
+        });
+
+        function saveMembersData() {
+            db.ref('members').set(membersData);
+        }
 
         function switchTab(tabId, btn) {
             document.querySelectorAll('.tab-content').forEach(el => el.classList.remove('active'));
@@ -452,7 +478,7 @@
         }
 
         function renderRanking() {
-            membersData.sort((a, b) => b.total - a.total);
+            const sortedData = [...membersData].sort((a, b) => ((b.plus || 0) - (b.minus || 0)) - ((a.plus || 0) - (a.minus || 0)));
             const tbody = document.getElementById('memberList');
             tbody.innerHTML = '';
 
@@ -460,7 +486,12 @@
                 el.style.display = isAdmin ? 'table-cell' : 'none';
             });
 
-            membersData.forEach((member, index) => {
+            sortedData.forEach((member, index) => {
+                const plus = member.plus || 0;
+                const minus = member.minus || 0;
+                const total = plus - minus;
+                const history = member.history || [];
+
                 const tr = document.createElement('tr');
                 tr.innerHTML = `
                     <td class="admin-col" style="display: ${isAdmin ? 'table-cell' : 'none'};">
@@ -470,9 +501,9 @@
                     <td>
                         <span class="clickable-name" onclick="toggleHistory(${member.id})">${member.name}</span>
                     </td>
-                    <td style="color: var(--success-color);">+${member.plus}</td>
-                    <td style="color: var(--danger-color);">${member.minus > 0 ? '-' + member.minus : 0}</td>
-                    <td><strong>${member.total}</strong></td>
+                    <td style="color: var(--success-color);">+${plus}</td>
+                    <td style="color: var(--danger-color);">${minus > 0 ? '-' + minus : 0}</td>
+                    <td><strong>${total}</strong></td>
                     <td class="admin-col" style="display: ${isAdmin ? 'table-cell' : 'none'};">
                         <button class="points-btn btn-plus" onclick="singleAdjust(${member.id}, 'plus')">+Điểm</button>
                         <button class="points-btn btn-minus" onclick="singleAdjust(${member.id}, 'minus')">-Điểm</button>
@@ -485,10 +516,10 @@
                 historyTr.className = 'history-row';
                 
                 let historyHtml = '<div class="history-container"><strong>📜 Lịch sử chi tiết thay đổi điểm:</strong><br>';
-                if (member.history.length === 0) {
+                if (history.length === 0) {
                     historyHtml += '<span style="color: #94a3b8;">Chưa có dữ liệu thay đổi điểm.</span>';
                 } else {
-                    member.history.forEach(h => {
+                    history.forEach(h => {
                         const typeText = h.type === 'plus' ? `<span style="color:var(--success-color)">+${h.amount}</span>` : (h.type === 'minus' ? `<span style="color:var(--danger-color)">-${h.amount}</span>` : `<span style="color:var(--warning-color)">Reset</span>`);
                         historyHtml += `<div class="history-item">[${h.date}] ${typeText} điểm - <strong>Lý do:</strong> ${h.reason}</div>`;
                     });
@@ -520,7 +551,7 @@
             }
 
             applyPoints(member, type, amount, reason.trim());
-            renderRanking();
+            saveMembersData();
         }
 
         function handleBatchPoints(type) {
@@ -551,11 +582,15 @@
             document.getElementById('batchReasonSelect').value = '';
             document.getElementById('selectAll').checked = false;
 
-            renderRanking();
+            saveMembersData();
             alert(`Đã cập nhật điểm cho ${selectedCheckboxes.length} học sinh thành công!`);
         }
 
         function applyPoints(member, type, amount, reason) {
+            if (!member.plus) member.plus = 0;
+            if (!member.minus) member.minus = 0;
+            if (!member.history) member.history = [];
+
             if (type === 'plus') member.plus += amount;
             if (type === 'minus') member.minus += amount;
 
@@ -576,13 +611,14 @@
             if (confirm(`Xác nhận RESET ĐIỂM của học sinh ${member.name} về 0?`)) {
                 member.plus = 0;
                 member.minus = 0;
+                if (!member.history) member.history = [];
                 member.history.unshift({
                     type: 'reset',
                     amount: 0,
                     reason: 'Admin Reset điểm số về 0',
                     date: new Date().toLocaleDateString('vi-VN')
                 });
-                renderRanking();
+                saveMembersData();
             }
         }
 
@@ -611,8 +647,9 @@
 
         function addNewEvent(e) {
             e.preventDefault();
-            eventsData.push({
-                id: Date.now(),
+            const eventId = Date.now();
+            const newEvent = {
+                id: eventId,
                 title: document.getElementById('eventTitle').value,
                 desc: document.getElementById('eventDesc').value,
                 start: document.getElementById('eventStart').value,
@@ -620,16 +657,16 @@
                 scale: document.getElementById('eventScale').value,
                 priority: document.getElementById('eventPriority').value,
                 link: document.getElementById('eventLink').value
-            });
-            renderEvents();
+            };
+
+            db.ref('events/' + eventId).set(newEvent);
             document.getElementById('addEventForm').reset();
             alert('Thêm sự kiện mới thành công!');
         }
 
         function deleteEvent(id) {
             if (confirm("Bạn có chắc chắn muốn xóa sự kiện này không?")) {
-                eventsData = eventsData.filter(ev => ev.id !== id);
-                renderEvents();
+                db.ref('events/' + id).remove();
             }
         }
 
@@ -647,7 +684,6 @@
             eventsData.forEach(ev => {
                 let badgeClass = '', badgeText = '';
 
-                // Phân loại 3 trạng thái sự kiện
                 if (today < ev.start) {
                     badgeClass = 'badge-upcoming'; badgeText = '📌 Sắp diễn ra';
                 } else if (today >= ev.start && today <= ev.end) {
@@ -685,8 +721,6 @@
 
         window.addEventListener('DOMContentLoaded', () => {
             initSelectBoxes();
-            renderRanking();
-            renderEvents();
         });
     </script>
 </body>
